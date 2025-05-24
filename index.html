@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Product Promotions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-white shadow-md p-6">
+    <h1 class="text-3xl font-bold text-center">My Product Promotions by HikoBagel</h1>
+    <a class="px-20 text-center">The links from the blue buttons will direct you to Amazon official websites!</a>
+  </header>
+
+  <main class="max-w-4xl mx-auto mt-8 px-4">
+    <div id="product-list" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+  </main>
+
+  <footer class="mt-12 py-6 text-center text-gray-500 text-sm">
+    &copy; 2025 HikoBagel. All rights reserved.
+  </footer>
+
+  <script>
+    const products = [
+      {
+        name: "Dyson Airwrap",
+        description: "An awesome gadget you'll love. My girlfriend personnaly love it, she can't live a day without it!",
+        link: "https://amzn.to/43r7mlS"
+      },
+      {
+        name: "Smart Tool",
+        description: "Makes your life easier.",
+        link: "https://example.com/smart-tool"
+      },
+      {
+        name: "Helpful Book",
+        description: "Learn new skills quickly.",
+        link: "https://example.com/helpful-book"
+      }
+    ];
+
+    const productList = document.getElementById("product-list");
+
+    products.forEach(product => {
+      const card = document.createElement("div");
+      card.className = "bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between";
+
+      card.innerHTML = `
+        <h2 class="text-xl font-semibold mb-2">${product.name}</h2>
+        <p class="mb-4">${product.description}</p>
+        <a href="${product.link}" target="_blank" class="mt-auto inline-block bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors">
+          View Product
+        </a>
+      `;
+
+      productList.appendChild(card);
+    });
+  </script>
+</body>
+</html>
